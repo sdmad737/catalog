@@ -74,9 +74,7 @@
     <BaseContainer>
       <NuxtLink to="/home">
         <h2 class="mt-1 text-4xl font-bold tracking-tight text-neutral-content sm:text-5xl lg:text-6xl flex">
-          HomeB
-          <AppLogo class="w-12 -mb-4" />
-          x
+          Catalog
         </h2>
       </NuxtLink>
       <div class="ml-1 mt-2 text-lg text-neutral-content/75 space-x-2">
