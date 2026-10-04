@@ -1,0 +1,78 @@
+name: Publish Release
+
+on:
+  push:
+    tags:
+      - v*
+
+permissions:
+  contents: write
+  packages: write
+
+jobs:
+  backend-tests:
+    name: "Backend Server Tests"
+    uses: ./.github/workflows/partial-backend.yaml
+
+  frontend-tests:
+    name: "Frontend and End-to-End Tests"
+    uses: ./.github/workflows/partial-frontend.yaml
+
+  goreleaser:
+    name: goreleaser
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: "1.24"
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 8.15.9
+
+      - name: Build Frontend and Copy to Backend
+        working-directory: frontend
+        run: |
+          pnpm install --frozen-lockfile --shamefully-hoist
+          pnpm run build
+          cp -r ./.output/public ../backend/app/api/static/
+
+      - name: Run GoReleaser
+        uses: goreleaser/goreleaser-action@v5
+        with:
+          workdir: "backend"
+          distribution: goreleaser
+          version: latest
+          args: release --clean
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  publish-tag:
+    name: "Publish Tag"
+    uses: ./.github/workflows/partial-publish.yaml
+    with:
+      release: true
+      tag: ${{ github.ref_name }}
+
+  deploy-docs:
+    name: Deploy docs
+    needs:
+      - publish-tag
+      - goreleaser
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+
+      - name: Deploy docs
+        uses: mhausenblas/mkdocs-deploy-gh-pages@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CONFIG_FILE: docs/mkdocs.yml
+          EXTRA_PACKAGES: build-base

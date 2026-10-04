@@ -1,0 +1,18 @@
+services:
+  catalog:
+    image: catalog
+    container_name: catalog
+    restart: unless-stopped
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+      args:
+        - COMMIT=head
+        - BUILD_TIME=0001-01-01T00:00:00Z
+    ports:
+      - "3100:7745"
+    volumes:
+      - catalog-data:/data
+
+volumes:
+  catalog-data:

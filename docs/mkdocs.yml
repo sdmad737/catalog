@@ -1,0 +1,57 @@
+site_name: Catalog
+site_url: https://sdmad737.github.io/catalog/
+repo_name: sdmad737/catalog
+repo_url: https://github.com/sdmad737/catalog
+use_directory_urls: true
+theme:
+  name: material
+  palette:
+    # Palette toggle for light mode
+    - scheme: catalog
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+  features:
+    - content.code.annotate
+    - navigation.instant
+    - navigation.expand
+    - navigation.sections
+    - navigation.tabs.sticky
+    - navigation.tabs
+  favicon: assets/img/catalog.svg
+  logo: assets/img/catalog.svg
+
+plugins:
+  - tags
+
+extra_css:
+  - assets/stylesheets/extras.css
+
+markdown_extensions:
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - def_list
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - admonition
+  - attr_list
+  - pymdownx.superfences
+
+nav:
+  - Home:
+      - Home: index.md
+      - Quick Start: quick-start.md
+      - Tips and Tricks: tips-tricks.md
+      - Import and Export: import-csv.md
+      - Building The Binary: build.md
+  - API: "https://redocly.github.io/redoc/?url=https://sdmad737.github.io/catalog/api/openapi-2.0.json"

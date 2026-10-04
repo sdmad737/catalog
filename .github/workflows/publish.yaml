@@ -1,0 +1,18 @@
+name: Publish Dockers
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  publish-nightly:
+    name: "Publish Nightly"
+    if: github.event_name != 'release'
+    uses: ./.github/workflows/partial-publish.yaml
+    with:
+      tag: nightly
