@@ -29,7 +29,16 @@ Catalog answers the practical questions around a real object: what it is, where 
 1. Dashboard
 
 ![Catalog dashboard](assets/screenshots/Dashboard.jpeg)
-3. NFC Tag setup
+
+2. Inventory
+
+![Catalog inventory](assets/screenshots/Inventory.png)
+
+3. Item view
+
+[Catalog Item workflow](assets/screenshots/Item.png)
+
+4. NFC Tag setup
 
 ![Catalog NFC and QR setup](assets/screenshots/NFC.png)
 
