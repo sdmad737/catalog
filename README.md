@@ -26,14 +26,11 @@ Catalog answers the practical questions around a real object: what it is, where 
 
 ## Screenshots
 
-The repository has dedicated slots for verified screenshots from a running Catalog deployment:
-
 1. Desktop dashboard and attention-needed view
-2. Inventory search and status view
-3. Mobile NFC item action screen
-4. Physical-tag setup and verification flow
+3. Inventory search and status view
+4. Mobile NFC item action screen
+5. Physical-tag setup and verification flow
 
-<!-- Add real deployment screenshots under docs/screenshots/ before the first tagged public release. Do not use fabricated product images. -->
 
 ## Physical NFC and QR setup
 
@@ -177,7 +174,7 @@ docker compose up -d
 
 **Progressive/experimental:** direct browser-based NFC writing on compatible Android devices. Manual NFC-app programming and QR fallback remain the supported cross-platform flow.
 
-**Planned:** verified release screenshots and broader end-to-end coverage across physical iPhone/Android devices. No AI, social, or unrelated analytics features are planned for the release-readiness phase.
+**Planned:** verified release screenshots and broader end-to-end coverage across physical iPhone/Android devices.
 
 ## Security
 
