@@ -36,7 +36,7 @@ Catalog answers the practical questions around a real object: what it is, where 
 
 3. Item view
 
-[Catalog Item workflow](assets/screenshots/Item.png)
+![Catalog Item workflow](assets/screenshots/Item.png)
 
 4. NFC Tag setup
 
