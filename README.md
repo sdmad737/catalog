@@ -27,8 +27,12 @@ Catalog answers the practical questions around a real object: what it is, where 
 ## Screenshots
 
 1. Dashboard
+
 ![Catalog dashboard](assets/screenshots/Dashboard.jpeg)
-2. NFC Tag setup
+3. NFC Tag setup
+
+![Catalog NFC and QR setup](assets/screenshots/NFC.png)
+
 
 ## Physical NFC and QR setup
 
